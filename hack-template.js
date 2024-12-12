@@ -1,4 +1,4 @@
-/** @param {NS} ns */
+/** @param {import(".").NS} ns */
 export async function main(ns) {
     // Defines the "target server", which is the server
     // that we're going to hack. In this case, it's "n00dles"
