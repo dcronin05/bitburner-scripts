@@ -19,6 +19,10 @@ export async function main(ns) {
         ns.brutessh(target);
     }
 
+    if (ns.fileExists("FTPCrack.exe", "home")) {
+        ns.ftpcrack(target);
+    }
+
     // Get root access to target server
     ns.nuke(target);
 

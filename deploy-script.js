@@ -12,7 +12,7 @@ export async function main(ns) {
 	
 	var target = ns.args[0];
 	var hosts = ns.scan(target);
-	ns.tprint(hosts);
+	ns.tprint("The hosts: ", hosts);
 	
 	for (var host of hosts) {
 		upload(ns, host, ns.args[1], ns.args[2]);
