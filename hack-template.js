@@ -24,16 +24,16 @@ export async function main(ns) {
 
     // Infinite loop that continously hacks/grows/weakens the target server
     while(true) {
-        if (ns.getServerMoneyAvailable(target) < moneyThresh) {
-            // If the server's money is less than our threshold, grow it
-            await ns.grow(target)
-        } else if (ns.getServerSecurityLevel(target) > securityThresh) {
+        if (ns.getServerSecurityLevel(target) > securityThresh) {
             // If the server's security level is above our threshold, weaken it
             await ns.weaken(target);
+        } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {
+            // If the server's money is less than our threshold, grow it
+            await ns.grow(target)
         } else {
             // Otherwise, hack it
             var hack = await ns.hack(target);
-            ns.tprint(hack)
+            ns.tprint(`Hacked $${hack} from target...`)
         }
     }
 }
