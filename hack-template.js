@@ -26,10 +26,12 @@ export async function main(ns) {
     while(true) {
         if (ns.getServerSecurityLevel(target) > securityThresh) {
             // If the server's security level is above our threshold, weaken it
-            await ns.weaken(target);
+            var woke = await ns.weaken(target);
+            ns.tprint(`Weakened ${target} by ${woke}.`);
         } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {
             // If the server's money is less than our threshold, grow it
-            await ns.grow(target)
+            var grew = await ns.grow(target)
+            ns.tprint(`Grew ${target} by ${grew}.`);
         } else {
             // Otherwise, hack it
             var hack = await ns.hack(target);
