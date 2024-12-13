@@ -8,7 +8,7 @@ export async function main(ns) {
     var newSec = ns.getServerSecurityLevel(target);
     if(newCash !== cash){
         let priceUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-        ns.tprint(`${target} security level is ${sec}`)
+        ns.tprint(`${target} security level is ${ns.formatNumber(sec)}`)
         ns.tprint(`${target} has ${priceUSD.format(cash)} available.`)
         cash = newCash;
         sec = newSec
