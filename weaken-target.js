@@ -32,7 +32,7 @@ export async function main(ns) {
     // Infinite loop that continously hacks the target server
     while(true) {
         var woke = await ns.weaken(target);
-        var curr = ns.formatNumber(ns.getServerSecurityLevel(target), 0);
+        var curr = ns.formatNumber(ns.getServerSecurityLevel(target), 1);
         ns.writePort(3, `Server ${target} security reduced by ${ns.formatNumber(woke, 1)} to ${curr}`)
     }
 }
