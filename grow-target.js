@@ -4,7 +4,7 @@ export async function main(ns) {
     // that we're going to hack. In this case, it's "n00dles"
     var target = ns.args[0];
     let priceUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
-    
+
 
     // If we have the BruteSSH.exe program, use it to open the SSH Port
     // on the target server
@@ -25,7 +25,8 @@ export async function main(ns) {
 
     // Infinite loop that continously hacks the target server
     while(true) {
-        var hack = await ns.grow(target);
-        ns.tprint(hack)
+        var result = await ns.grow(target);
+        var curr = priceUSD.format(ns.getServerMoneyAvailable(target));
+        ns.tprint(`Server ${target} money grown ${ns.formatNumber(result, 0)} times to ${curr}`)
     }
 }

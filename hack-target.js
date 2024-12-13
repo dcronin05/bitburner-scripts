@@ -1,4 +1,4 @@
-/** @param {NS} ns */
+/** @param {import(".").NS} ns */
 export async function main(ns) {
     // Defines the "target server", which is the server
     // that we're going to hack. In this case, it's "n00dles"
@@ -10,12 +10,25 @@ export async function main(ns) {
         ns.brutessh(target);
     }
 
+    if (ns.fileExists("FTPCrack.exe", "home")) {
+        ns.ftpcrack(target);
+    }
+
+    if (ns.fileExists("relaySMTP.exe", "home")) {
+        ns.relaysmtp(target);
+    }
+
     // Get root access to target server
     ns.nuke(target);
 
+    let priceUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+
     // Infinite loop that continously hacks the target server
     while(true) {
+        var scriptHost = ns.getHostname();
         var hack = await ns.hack(target);
-        ns.tprint(hack)
+        ns.tprint(`${priceUSD.format(hack)} hacked from ${target} by hack-target.js running on ${scriptHost}`);
+
+        ns.writePort(1, priceUSD.format(hack));
     }
 }

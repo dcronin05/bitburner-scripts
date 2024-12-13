@@ -8,6 +8,8 @@ export async function main(ns) {
     curr = priceUSD.format(curr);
     var sec = ns.getServerSecurityLevel(target);
     var minSec = ns.getServerMinSecurityLevel(target);
+    var weakenReqs = ns.growthAnalyze(target, 500, 2);
     ns.tprint(`${target} has ${curr} money available out of ${max} max money.`)
     ns.tprint(`${target}'s security level is ${sec} out of ${minSec}.`)
+    ns.tprint(`${weakenReqs}`);
 }
