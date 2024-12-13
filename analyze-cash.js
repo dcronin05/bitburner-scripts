@@ -9,7 +9,7 @@ export async function main(ns) {
     if(newCash !== cash){
         let priceUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
         //   ns.tprint(`${target} security level is ${sec} and it has ${cash} money available.`)
-        ns.tprint(`${target} has $${priceUSD.format(cash)} available.`)
+        ns.tprint(`${target} has ${priceUSD.format(cash)} available.`)
         cash = newCash;
         sec = newSec
     }
