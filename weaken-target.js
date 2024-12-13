@@ -25,6 +25,6 @@ export async function main(ns) {
     while(true) {
         var woke = await ns.weaken(target);
         var curr = ns.formatNumber(ns.getServerSecurityLevel(target), 1);
-        ns.tprint(`Server ${target} security reduced by ${ns.formatNumber(woke, 1)} to ${curr}`)
+        ns.writePort(3, `Server ${target} security reduced by ${ns.formatNumber(woke, 1)} to ${curr}`)
     }
 }

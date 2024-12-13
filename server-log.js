@@ -1,7 +1,9 @@
 /** @param {import(".").NS} ns */
 export async function main(ns) {
+    ns.tail();
     ns.disableLog("sleep");
     ns.disableLog("getServerMoneyAvailable");
+    ns.disableLog("tail");
     while(true) {
         await ns.sleep(1000);
 

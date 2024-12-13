@@ -27,6 +27,6 @@ export async function main(ns) {
     while(true) {
         var result = await ns.grow(target);
         var curr = priceUSD.format(ns.getServerMoneyAvailable(target));
-        ns.tprint(`Server ${target} money grown ${ns.formatNumber(result, 0)} times to ${curr}`)
+        ns.writePort(2, `Server ${target} money grown ${ns.formatNumber(result, 1)} times to ${curr}`)
     }
 }

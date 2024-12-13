@@ -27,8 +27,9 @@ export async function main(ns) {
     while(true) {
         var scriptHost = ns.getHostname();
         var hack = await ns.hack(target);
-        ns.tprint(`${priceUSD.format(hack)} hacked from ${target} by hack-target.js running on ${scriptHost}`);
+        var logMsg = `${priceUSD.format(hack)} hacked from ${target} by hack-target.js running on ${scriptHost}`;
 
-        ns.writePort(1, priceUSD.format(hack));
+        ns.print(logMsg);
+        ns.writePort(1, logMsg);
     }
 }
