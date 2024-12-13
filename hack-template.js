@@ -23,6 +23,10 @@ export async function main(ns) {
         ns.ftpcrack(target);
     }
 
+    if (ns.fileExists("relaySMTP.exe", "home")) {
+        ns.relaysmtp(target);
+    }
+
     // Get root access to target server
     ns.nuke(target);
 
