@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git pull gitea
+git push gitea
+git push github
