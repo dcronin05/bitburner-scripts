@@ -2,7 +2,7 @@
 export async function main(ns) {
     while(true) {
         var numNodes = ns.hacknet.numNodes();
-        for (var i = 0; i < numNodes; i++) {
+        for (var i = numNodes - 1; i > -1; i--) {
             var name = ns.hacknet.getNodeStats(i);
 
             if (ns.hacknet.purchaseNode() !== -1 ) {
@@ -10,13 +10,13 @@ export async function main(ns) {
             }
 
             ns.print("node - ", name.name, "Level - ", name.level);
-            if(ns.hacknet.upgradeLevel(i)) {
+            while(ns.hacknet.upgradeLevel(i)) {
                 ns.tprint(`Node ${i} upgraded to level ${name.level}.`);
             }
-            if(ns.hacknet.upgradeCore(i)) {
+            while(ns.hacknet.upgradeCore(i)) {
                 ns.tprint(`Node ${i} upgraded to ${name.cores} cores.`)
             }
-            if(ns.hacknet.upgradeRam(i)) {
+            while(ns.hacknet.upgradeRam(i)) {
                 ns.tprint(`Node ${i} RAM upgraded to ${name.ram}GB.`)
             }
         }

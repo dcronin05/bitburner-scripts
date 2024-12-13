@@ -9,9 +9,9 @@ export async function main(ns) {
 		return;
 	}
 
-	const host = args._[0];
+	const host = args._[1];
 	ns.tprint(host);
-	const script = args._[1];
+	const script = args._[0];
 	ns.tprint(script);
 	const script_args = args._.slice(2);
 	ns.tprint(script_args);

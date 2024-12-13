@@ -4,7 +4,7 @@ function upload(ns, host, script, target) {
 	if (host !== "home") {
 		var kill = ns.scriptKill("hack-template.js", host);
 		ns.print(kill);
-		ns.run("deploy.js", 1, host, script, target);
+		ns.run("initiate.js", 1, script, host, target);
 		ns.tprint("launching script on ", host);
 	}
 }
