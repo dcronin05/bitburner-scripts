@@ -20,6 +20,14 @@ export async function main(ns) {
         ns.relaysmtp(target);
     }
 
+    if (ns.fileExists("HTTPWorm.exe", "home")) {
+        ns.httpworm(target);
+    }
+
+    if (ns.fileExists("SQLInject.exe", "home")) {
+        ns.sqlinject(target);
+    }
+
     // Get root access to target server
     ns.nuke(target);
 

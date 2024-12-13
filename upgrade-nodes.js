@@ -15,12 +15,13 @@ export async function main(ns) {
                 name = ns.hacknet.getNodeStats(i);
                 ns.tprint(`Node ${i} RAM upgraded to ${name.ram}GB.`)
             }
+            
+            if (ns.hacknet.purchaseNode() !== -1 ) {
+                var name = ns.hacknet.getNodeStats(i);
+                ns.tprint(`Purchased new node!!`);
+            }
         }
         
-        if (ns.hacknet.purchaseNode() !== -1 ) {
-            var name = ns.hacknet.getNodeStats(i);
-            ns.tprint(`Purchased new node!!`);
-        }
     
         await ns.sleep(1000);
     }

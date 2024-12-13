@@ -8,7 +8,7 @@ export async function main(ns) {
     var target = ns.args[0];
 
     while(true) {
-        await ns.sleep(1000);
+        await ns.sleep(100);
         var data = ns.readPort(target);
         if (data !== "NULL PORT DATA") {
             ns.print(data);

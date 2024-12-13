@@ -18,13 +18,21 @@ export async function main(ns) {
         ns.relaysmtp(target);
     }
 
+    if (ns.fileExists("HTTPWorm.exe", "home")) {
+        ns.httpworm(target);
+    }
+
+    if (ns.fileExists("SQLInject.exe", "home")) {
+        ns.sqlinject(target);
+    }
+
     // Get root access to target server
     ns.nuke(target);
 
     // Infinite loop that continously hacks the target server
     while(true) {
         var woke = await ns.weaken(target);
-        var curr = ns.formatNumber(ns.getServerSecurityLevel(target), 1);
+        var curr = ns.formatNumber(ns.getServerSecurityLevel(target), 0);
         ns.writePort(3, `Server ${target} security reduced by ${ns.formatNumber(woke, 1)} to ${curr}`)
     }
 }
