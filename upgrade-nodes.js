@@ -21,7 +21,6 @@ export async function main(ns) {
                 ns.writePort(4, `Purchased new node!!`);
             }
         }
-        
     
         await ns.sleep(1000);
     }
