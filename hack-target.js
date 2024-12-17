@@ -31,7 +31,7 @@ export async function main(ns) {
 
     let priceUSD = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
 
-    // Infinite loop that continously hacks the target server
+    // Infinite loop that continuously hacks the target server
     while(true) {
         var scriptHost = ns.getHostname();
         var hack = await ns.hack(target);

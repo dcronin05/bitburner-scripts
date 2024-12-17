@@ -5,20 +5,20 @@ export async function main(ns) {
         for (var i = numNodes - 1; i > -1; i--) {
             while(ns.hacknet.upgradeLevel(i)) {
                 name = ns.hacknet.getNodeStats(i);
-                ns.tprint(`Node ${i} upgraded to level ${name.level}.`);
+                ns.writePort(4, `Node ${i} upgraded to level ${name.level}.`);
             }
             while(ns.hacknet.upgradeCore(i)) {
                 name = ns.hacknet.getNodeStats(i);
-                ns.tprint(`Node ${i} upgraded to ${name.cores} cores.`)
+                ns.writePort(4, `Node ${i} upgraded to ${name.cores} cores.`)
             }
             while(ns.hacknet.upgradeRam(i)) {
                 name = ns.hacknet.getNodeStats(i);
-                ns.tprint(`Node ${i} RAM upgraded to ${name.ram}GB.`)
+                ns.writePort(4, `Node ${i} RAM upgraded to ${name.ram}GB.`)
             }
             
             if (ns.hacknet.purchaseNode() !== -1 ) {
                 var name = ns.hacknet.getNodeStats(i);
-                ns.tprint(`Purchased new node!!`);
+                ns.writePort(4, `Purchased new node!!`);
             }
         }
         
